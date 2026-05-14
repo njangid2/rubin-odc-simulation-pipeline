@@ -752,7 +752,7 @@ if __name__ == "__main__":
         shell_ids      = None,        # None → auto-detect all shells
         n_steps        = 10,          # time samples per exposure
         fov_radius_deg = 1.75,
-        n_workers      = 40,           # 8 of your 10 logical cores
+        n_workers      = 40,          
         delete_tles    = False,       # True → delete TLE pkls after each day
         log_filename   = "step2.log",
     )
