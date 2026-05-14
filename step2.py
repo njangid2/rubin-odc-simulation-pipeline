@@ -15,7 +15,6 @@ PARALLELISM
 ───────────
 Shells within each day run in parallel (Pool.map over shells).
 Days run sequentially so the per-day merge + cleanup stays simple.
-N_WORKERS = 8  (leaves 2 of your 10 cores free).
 
 RESUMABILITY (two levels)
 ─────────────────────────
