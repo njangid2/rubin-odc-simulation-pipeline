@@ -3,11 +3,6 @@ data_center.py
 ──────────────────────────────────────────────────────────────────────────────
 Satellite Brightness Calculator
 
-Key changes from original:
-    1. Solar panel normal points toward the Sun by default.
-    2. Panel can be offset by PANEL_OFFSET_DEG degrees from Sun direction
-       toward nadir using Rodrigues rotation formula.
-
     This simulates brightness mitigation strategies where satellites
     deliberately tilt their solar panels away from perfectly facing the Sun.
 
