@@ -46,9 +46,6 @@ STORAGE
   - Intermediates deleted after each day's merge
   - Only final streak_trajectories_YYYY-MM-DD.csv kept
 
-MUST be run from terminal as a .py file (not Jupyter):
-    python step2_propagate_and_match.py
-
 Requirements:
     pip install sgp4
 """
