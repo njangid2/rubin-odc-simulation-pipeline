@@ -7,13 +7,13 @@ Simulates the impact of SpaceX Orbital Data Center (ODC) satellite constellation
 ## Dependencies
 
 ```bash
-pip install numpy pandas astropy sgp4 lumos
+pip install numpy pandas astropy sgp4 lumos-sat
 ```
 
 You will also need:
 - `data_center_20deg.py` — local module (included in this repo); must be in the same directory as `brightness_20deg.py`
 - `starlink` — satellite surface model library (used internally by `data_center_20deg.py`)
-- `lumos` — BRDF brightness framework ([Fankhauser et al. 2023](https://github.com/Fankhauser/lumos))
+- `lumos-sat` — BRDF brightness framework ([Fankhauser et al. 2023](https://github.com/Fankhauser/lumos))
 
 > **Note:** `data_center_20deg.py` is not pip-installable. Keep it in the working directory alongside the step scripts.
 
