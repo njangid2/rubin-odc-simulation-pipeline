@@ -365,6 +365,6 @@ if __name__ == "__main__":
         ),
         output_dir  = "step3_output",
         batch_size  = 50_000,
-        n_workers   = 40,        # match --cpus-per-task in sbatch
+        n_workers   = 40,      
         log_filename= "step3a.log",
     )
