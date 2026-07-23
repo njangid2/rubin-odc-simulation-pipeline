@@ -53,10 +53,16 @@ pip install numpy pandas astropy sgp4 shapely lumos-sat matplotlib pytz
 
 You will also need:
 - `data_center_20deg.py` — local satellite BRDF/surface model module, required by
-  Step 4. Must be in the same working directory as `step4_brightness_20deg.py`.
+  Step 4 (see dedicated section below). Must be in the same working directory as
+  `step4_brightness_20deg.py`.
 - `lumos-sat` — BRDF brightness framework used by Steps 4 and 6
   ([Fankhauser et al. 2023](https://github.com/Fankhauser/lumos)).
 - `shapely` — polygon geometry used by Steps 5, 7, and 8 for streak/CCD footprints.
+- `starlink.satellitemodels` and `analysis.calculator` — internal packages that
+  `data_center_20deg.py` imports for the base satellite surface model and the
+  observer-frame intensity calculation. These are not on PyPI; they must be on
+  your `PYTHONPATH` (from your organization's internal `lumos`/`starlink`
+  toolchain) before Step 4 will import successfully.
 
 > `data_center_20deg.py` is not pip-installable — keep it alongside the step scripts.
 
@@ -245,6 +251,52 @@ u: +1.428   g: +0.245   r: -0.210   i: -0.322   z: -0.357   y: -0.371
 ```bash
 python step4b_convertopbandmag.py
 ```
+
+---
+
+### Supporting Module — `data_center_20deg.py`
+
+Not a pipeline step itself — this is the satellite brightness calculator imported
+by Step 4 (`import data_center_20deg as data_center`). It builds the satellite
+surface/BRDF model and converts observer-frame geometry into intensity and AB
+magnitude.
+
+**Satellite model:**
+- Base satellite surfaces from `starlink.satellitemodels.get_surfaces()`
+  (chassis + bus surfaces), plus:
+- A solar array surface sized from `power_kw` via `power_to_area()`
+  (`area = (power_kw / 25.0 kW) * 104.96 m²`, doubled if `continuous=True`),
+  using a `BINOMIAL` BRDF fit for the array material.
+- Two radiator surfaces (110 m² each, Lambertian, albedo 0.9), nominally normal
+  to the body x-axis with a small mechanical wobble (default ±5°) applied around
+  the y or z axis.
+- An Earth BRDF (`PHONG(Kd=0.2, Ks=0.2, n=300)`) used only if `include_earthshine=True`.
+
+**Solar panel off-pointing (brightness mitigation):**
+The solar array's surface normal does *not* point exactly at the Sun — it is
+rotated `PANEL_OFFSET_DEG` (default 20°) from the Sun direction toward nadir,
+via `calculate_panel_normal()` using the Rodrigues rotation formula around the
+axis `k = sun_vector × nadir_vector`. This models satellites deliberately
+tilting their panels away from the Sun to reduce reflected brightness:
+- `offset_deg = 0` → panel faces the Sun exactly (maximum brightness)
+- `offset_deg = 20` → panel receives `cos(20°) ≈ 94%` of peak solar flux (this repo's default)
+- `offset_deg = 90` → panel faces nadir, no direct solar reflection
+
+**Key functions:**
+| Function | Purpose |
+|---|---|
+| `calculate_sun_direction_vectors(sun_alt, sun_azi)` | Sun az/el → unit vector (x=East, y=North, z=Up) |
+| `calculate_panel_normal(sun_alt, sun_azi, offset_deg)` | Offset panel normal via Rodrigues rotation |
+| `validate_panel_offset(...)` | Sanity-checks `dot(panel_normal, sun_dir) ≈ cos(offset_deg)` |
+| `power_to_area(power_kw, continuous)` | Solar power (kW) → panel area (m²) |
+| `get_surfaces_with_solar_array(power_kw, sun_altitude, sun_azimuth, ...)` | Assembles chassis + tilted solar array into a `Surface` list |
+| `surface_with_radiators(surfaces, wobble_deg, wobble_axis)` | Appends the two wobbled radiator surfaces |
+| `calculate_brightness(sat_height, sat_altitude, sat_azimuth, sun_altitude, sun_azimuth, power_kw, ...)` | Full pipeline: builds surfaces → `calculator.get_intensity_observer_frame()` → `intensity_to_ab_mag()`. Returns a dict with `intensity`, `ab_magnitude`, `area`, `power_type`, `sun_normal`, `offset_deg`, `dot_panel_sun` |
+| `intensity_to_ab_mag(intensity, clip=True)` | Converts W/m² intensity to AB magnitude at the 532 nm reference wavelength, clipping below ~12 mag if `clip=True` |
+
+All function signatures/return values match the original (pre-offset) version of
+this module, so Step 4 and any other caller require no changes when swapping
+`PANEL_OFFSET_DEG`.
 
 ---
 
