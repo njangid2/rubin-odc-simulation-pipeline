@@ -19,16 +19,8 @@ authors:
   - family-names: Jangid
     given-names: Nayan
     affiliation: "[your affiliation]"
-    # orcid: "https://orcid.org/0000-0000-0000-0000"
-  # Add paper co-authors below ONLY if they contributed to this code:
-  # - family-names: Rawls
-  #   given-names: Meredith L.
-  # - family-names: Yoachim
-  #   given-names: Peter
-  # - family-names: Walke
-  #   given-names: Connie
-  # - family-names: Eggl
-  #   given-names: Siegfried
+    orcid: "https://orcid.org/0009-0000-3705-3753"
+
 
 abstract: >-
   Python pipeline that simulates the impact of a large constellation of
