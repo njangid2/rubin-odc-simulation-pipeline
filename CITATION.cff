@@ -2,25 +2,20 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata below."
 type: software
 title: "ODC Simulation Pipeline: satellite-streak, pixel-loss and sky-brightness simulations for orbital data centers observed by Vera C. Rubin Observatory"
-version: v1.0.0
-date-released: "2026-10-05"            # <- set to the actual release date
-
-# License: must be the SAME as the LICENSE file in the repo AND the Zenodo
-# license field. GPL-3.0-or-later is suggested because Step 8 imports rubin_sim
-# and Step 10 imports rubin_scheduler (both GPL-3.0). Change if you choose differently.
+version: v1.0.1
+date-released: "2026-10-05"   # set to the day you actually publish the release
 license: GPL-3.0-or-later
+repository-code: "https://github.com/njangid2/rubin-odc-simulation-pipeline"
 
-repository-code: "https://github.com/njangid2/rubin-odc-simulation-pipeline.git"   # <- your GitHub URL
-doi: https://doi.org/10.5281/zenodo.23171008           # <- uncomment AFTER Zenodo mints it (see checklist)
+# Add this line AFTER v1.0.1 is published and Zenodo gives you its DOI.
+# Use the bare DOI (not the https://doi.org/ URL), otherwise the file is invalid:
+# doi: 10.5281/zenodo.XXXXXXXX
 
-# AAS policy: list ONLY people who contributed to the code, with full names.
-# The lead author goes first (Zenodo will show them as the "lead author").
 authors:
   - family-names: Jangid
     given-names: Nayan
-    affiliation: "[The Grainger College of Engineering, Department of Aerospace Engineering, University of Illinois Urbana-Champaign, Urbana, IL, USA],[IAU Centre for the Protection of the Dark and Quiet Sky, France]"
+    affiliation: "The Grainger College of Engineering, Department of Aerospace Engineering, University of Illinois Urbana-Champaign, Urbana, IL, USA; IAU Centre for the Protection of the Dark and Quiet Sky, France"
     orcid: "https://orcid.org/0009-0000-3705-3753"
-
 
 abstract: >-
   Python pipeline that simulates the impact of a large constellation of
@@ -34,8 +29,8 @@ abstract: >-
   computes the fraction of focal-plane pixels lost, including the summation
   of electrons from overlapping streaks, and (5) estimates the increase in
   whole-sky brightness relative to Rubin's natural sky-brightness model.
-  Scripts for a 1/10th-scale constellation, summary statistics, and the
-  figures of the associated paper are included.
+  Scripts for a 1/10th-scale constellation and notebooks for the summary
+  statistics and analysis figures are included.
 
 keywords:
   - satellite constellations
