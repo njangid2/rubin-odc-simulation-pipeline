@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+type: software
+title: "ODC Simulation Pipeline: satellite-streak, pixel-loss and sky-brightness simulations for orbital data centers observed by Vera C. Rubin Observatory"
+version: v1.0.0
+date-released: "2026-10-05"            # <- set to the actual release date
+
+# License: must be the SAME as the LICENSE file in the repo AND the Zenodo
+# license field. GPL-3.0-or-later is suggested because Step 8 imports rubin_sim
+# and Step 10 imports rubin_scheduler (both GPL-3.0). Change if you choose differently.
+license: GPL-3.0-or-later
+
+repository-code: "https://github.com/YOUR-USERNAME/YOUR-REPO"   # <- your GitHub URL
+# doi: 10.5281/zenodo.XXXXXXX           # <- uncomment AFTER Zenodo mints it (see checklist)
+
+# AAS policy: list ONLY people who contributed to the code, with full names.
+# The lead author goes first (Zenodo will show them as the "lead author").
+authors:
+  - family-names: Jangid
+    given-names: Nayan
+    affiliation: "[your affiliation]"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+  # Add paper co-authors below ONLY if they contributed to this code:
+  # - family-names: Rawls
+  #   given-names: Meredith L.
+  # - family-names: Yoachim
+  #   given-names: Peter
+  # - family-names: Walke
+  #   given-names: Connie
+  # - family-names: Eggl
+  #   given-names: Siegfried
+
+abstract: >-
+  Python pipeline that simulates the impact of a large constellation of
+  orbital data center (ODC) satellites on Vera C. Rubin Observatory
+  observations over a one-year window of the baseline survey. For each
+  simulated pointing it (1) propagates satellite orbits with SGP4 for every
+  orbital shell, (2) identifies satellites crossing the LSSTCam field of
+  view, (3) computes streak brightness (AB magnitude and per-band surface
+  brightness) from the sunlight-reflection geometry, with band corrections,
+  (4) classifies streaks (ultrabright, saturated, unsaturated, faint) and
+  computes the fraction of focal-plane pixels lost, including the summation
+  of electrons from overlapping streaks, and (5) estimates the increase in
+  whole-sky brightness relative to Rubin's natural sky-brightness model.
+  Scripts for a 1/10th-scale constellation, summary statistics, and the
+  figures of the associated paper are included.
+
+keywords:
+  - satellite constellations
+  - Vera C. Rubin Observatory
+  - LSST
+  - orbital data centers
+  - satellite streaks
+  - pixel loss
+  - sky brightness
+  - simulation

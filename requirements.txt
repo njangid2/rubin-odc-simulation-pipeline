@@ -1,0 +1,20 @@
+# Core (Steps 1-10, notebooks)
+numpy
+pandas
+astropy
+sgp4
+shapely
+matplotlib
+pytz
+healpy
+lumos-sat
+jupyter
+
+# Rubin packages (both GPL-3.0). Install only what you need:
+#   rubin-sim        -> Step 8
+#   rubin-scheduler  -> Step 10 with --sky-baseline real (also needs its data files)
+rubin-sim
+rubin-scheduler
+
+# For exact reproducibility, pin the versions you actually ran with, e.g. from
+#   pip freeze | grep -i -E "numpy|pandas|astropy|sgp4|shapely|matplotlib|pytz|healpy|lumos|rubin"
