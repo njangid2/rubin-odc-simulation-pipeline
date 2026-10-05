@@ -11,7 +11,7 @@ date-released: "2026-10-05"            # <- set to the actual release date
 license: GPL-3.0-or-later
 
 repository-code: "https://github.com/njangid2/rubin-odc-simulation-pipeline.git"   # <- your GitHub URL
-# doi: 10.5281/zenodo.XXXXXXX           # <- uncomment AFTER Zenodo mints it (see checklist)
+doi: https://doi.org/10.5281/zenodo.23171008           # <- uncomment AFTER Zenodo mints it (see checklist)
 
 # AAS policy: list ONLY people who contributed to the code, with full names.
 # The lead author goes first (Zenodo will show them as the "lead author").
