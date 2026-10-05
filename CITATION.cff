@@ -18,7 +18,7 @@ repository-code: "https://github.com/YOUR-USERNAME/YOUR-REPO"   # <- your GitHub
 authors:
   - family-names: Jangid
     given-names: Nayan
-    affiliation: "[your affiliation]"
+    affiliation: "[The Grainger College of Engineering, Department of Aerospace Engineering, University of Illinois Urbana-Champaign, Urbana, IL, USA],[IAU Centre for the Protection of the Dark and Quiet Sky, France]"
     orcid: "https://orcid.org/0009-0000-3705-3753"
 
 
