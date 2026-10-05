@@ -805,7 +805,7 @@ If you use this software, please cite the archived release:
 
 > Jangid, N. (2026). *ODC Simulation Pipeline: satellite-streak, pixel-loss and
 > sky-brightness simulations for orbital data centers observed by Vera C. Rubin
-> Observatory* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX
+> Observatory* (v1.0.0). Zenodo. [https://doi.org/10.5281/zenodo.XXXXXXX](https://doi.org/10.5281/zenodo.23171008)
 
 and the associated paper (Jangid, Rawls, Yoachim, Walke & Eggl, *The Impact of Orbital Data
 Centers on the NSF-DOE Vera C. Rubin Observatory*). GitHub's "Cite this repository" button
