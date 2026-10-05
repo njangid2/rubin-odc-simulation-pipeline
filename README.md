@@ -1,5 +1,7 @@
 # ODC Satellite Streak, Brightness & Pixel-Loss Pipeline
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23171008.svg)](https://doi.org/10.5281/zenodo.23171008)
+
 Simulates the impact of SpaceX Orbital Data Center (ODC) satellite constellations on
 Vera C. Rubin Observatory (LSST) observations. The pipeline propagates a synthetic
 94-shell satellite population through the Rubin pointing schedule, identifies
@@ -805,23 +807,25 @@ If you use this software, please cite the archived release:
 
 > Jangid, N. (2026). *ODC Simulation Pipeline: satellite-streak, pixel-loss and
 > sky-brightness simulations for orbital data centers observed by Vera C. Rubin
-> Observatory* (v1.0.0). Zenodo. [https://doi.org/10.5281/zenodo.XXXXXXX](https://doi.org/10.5281/zenodo.23171008)
+> Observatory* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.23171008
 
 and the associated paper (Jangid, Rawls, Yoachim, Walke & Eggl, *The Impact of Orbital Data
 Centers on the NSF-DOE Vera C. Rubin Observatory*). GitHub's "Cite this repository" button
 reads [`CITATION.cff`](CITATION.cff).
 
-<!-- TODO before release: replace XXXXXXX with the Zenodo DOI once the first release is archived. -->
-
 ---
 
 ## License
 
-See [`LICENSE`](LICENSE).
+This software is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation, either
+version 3 of the License, or (at your option) any later version (**GPL-3.0-or-later**).
+It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+[`LICENSE`](LICENSE) file for the full text.
 
-<!-- TODO before release: add a LICENSE file. The same license must be set on Zenodo.
-     Suggested: GPL-3.0-or-later, because Step 8 imports rubin_sim and Step 10 imports
-     rubin_scheduler, which are both GPL-3.0. -->
+The GPL license is used because Step 8 imports `rubin_sim` and Step 10 imports
+`rubin_scheduler`, which are both licensed GPL-3.0.
 
 ---
 
