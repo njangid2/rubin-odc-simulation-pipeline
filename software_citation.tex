@@ -1,0 +1,39 @@
+%% ═══════════════════════════════════════════════════════════════════════
+%% Software citation for the AAS editor's request.
+%% Fill in the Zenodo DOI (and GitHub URL) once the release is published.
+%% ═══════════════════════════════════════════════════════════════════════
+
+%% ── 1. In the text (e.g. end of the Introduction, or Section 2) ─────────
+%%    GitHub URL stays, as a footnote, as the editor allows.
+The simulation pipeline used in this work is publicly available and has
+been archived on Zenodo \citep{jangid2026odcpipeline}.%
+\footnote{Development repository: \url{https://github.com/YOUR-USERNAME/YOUR-REPO}}
+
+%% ── 2. Optional "Software and data availability" paragraph ──────────────
+%%    (end matter, before the Acknowledgments or references)
+\textit{Software availability.} The ODC Simulation Pipeline (v1.0.0),
+including the scripts used to produce every figure and table in this
+paper, is archived at Zenodo under the DOI
+\href{https://doi.org/10.5281/zenodo.23171008}{10.5281/zenodo.23171008}
+\citep{jangid2026odcpipeline}.
+
+%% ── 3. AASTeX \software tag (just before the bibliography) ──────────────
+%%    Use the citation keys already in your .bib for the other packages.
+\software{ODC Simulation Pipeline (v1.0.0; \citealt{jangid2026odcpipeline}),
+          Astropy, SGP4, Shapely, rubin\_sim, rubin\_scheduler, healpy, NumPy, pandas, Matplotlib}
+
+%% ── 4. Bibliography entry (add to your .bib file) ───────────────────────
+%%    Zenodo's "Export -> BibTeX" gives an equivalent entry; either is fine.
+%%    If your bibliography style warns about @software, change it to @misc.
+%
+% @software{jangid2026odcpipeline,
+%   author    = {Jangid, Nayan},   % add co-authors ONLY if they contributed to the code
+%   title     = {{ODC Simulation Pipeline: satellite-streak, pixel-loss and
+%                 sky-brightness simulations for orbital data centers
+%                 observed by Vera C. Rubin Observatory}},
+%   year      = {2026},
+%   publisher = {Zenodo},
+%   version   = {v1.0.0},
+%   doi       = {10.5281/zenodo.23171008},
+%   url       = {https://doi.org/10.5281/zenodo.23171008}
+% }
